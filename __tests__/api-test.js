@@ -1,7 +1,6 @@
 import { 
     getUsers,
     getUser,
-    getUserEmail,
     getPostsForUser,
     createPostForUser
 } from "../index"

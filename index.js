@@ -25,22 +25,10 @@ export const getUser = async (userId) => {
     return users[userId - 1]
 }
 
-export const getUserEmail = async (userId) => {
-    const user = await getUser(userId)
-
-    const userEmail = user.email
-
-    console.log(`User email for userId ${userId}:`, userEmail)
-
-    return userEmail
-}
-
 export const getPostsForUser = async (userId) => {
     validateUserId(userId)
     
     const posts = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`).then((r) => r.json())
-
-    console.log(`Posts for userId ${userId}:`, { posts })
     
     return posts
 }
@@ -56,9 +44,7 @@ export const createPostForUser = async (userId) => {
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         }
-    }).then((r) => r.json())
-
-    console.log("Post Created with response:", response)
+    })
 
     return response
 }
