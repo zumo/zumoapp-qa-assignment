@@ -1,6 +1,7 @@
 import fetch from "node-fetch"
 
 // change this value to test with different userId
+// should be a number between 1 and 10
 const USER_ID = 1
 
 const validateUserId = (userId) => {
@@ -9,10 +10,16 @@ const validateUserId = (userId) => {
     }
 }
 
+export const getUsers = async () => {
+    const users = await fetch('https://jsonplaceholder.typicode.com/users').then((r) => r.json())
+    
+    return users
+}
+
 export const getUser = async (userId) => {
     validateUserId(userId)
 
-    const users = await fetch('https://jsonplaceholder.typicode.com/users').then((r) => r.json())
+    const users = await getUsers()
 
     // index of user
     return users[userId - 1]
@@ -55,7 +62,3 @@ export const createPostForUser = async (userId) => {
 
     return response
 }
-
-getUserEmail(USER_ID)
-getPostsForUser(USER_ID)
-createPostForUser(USER_ID)
