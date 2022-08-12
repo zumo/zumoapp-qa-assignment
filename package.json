@@ -1,0 +1,9 @@
+{
+  "name": "zumoapp-qa-assignment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "repository": "https://github.com/zumo/zumoapp-qa-assignment",
+  "author": "Calum Gould <calumgould26@gmail.com>",
+  "license": "MIT"
+}
